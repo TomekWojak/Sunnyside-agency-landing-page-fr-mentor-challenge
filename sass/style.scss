@@ -185,7 +185,9 @@ img {
 
 
 // IMAGES SECTION
-
+.desktop-visible {
+    display: none;
+}
 .images {
 
     &__wrapper {
@@ -199,9 +201,7 @@ img {
     overflow: hidden;
     
 
-    .desktop-visible {
-        display: none;
-    }
+
     &__img {
         width: 100%;
         height: 100%;
@@ -381,6 +381,78 @@ img {
 }
 
 
+    
+
+  
+
+// GALLERY SECTION 
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+
+// FOOTER 
+
+.footer {
+    background-color: hsl(166.76deg 44.16% 69.8%);
+    padding: 6em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: $Barlow;
+
+    &__title {
+        font-size: 3rem;
+        color: $cherriesText;
+        font-weight: 800;
+    }
+    &__links {
+        margin: 4em 0 10em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4em;
+    }
+    &__link {
+        text-decoration: none;
+        color: $cherriesText;
+        font-size: 1.7rem;
+        font-weight: 500;
+        transition: color .3s;
+
+            &:hover {
+                color: $pureWhite;
+            }
+    }
+    &__social-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3em;
+    }
+    &__social-icon {
+
+        path {
+            transition: fill .3s;
+        }
+
+        &:hover path {
+            fill: $pureWhite;
+        }
+    }
+}
+
 
 @media(400px >= height) {
     .header {
@@ -538,6 +610,10 @@ img {
             margin-block-end: 6em;
         }
     }
+
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 @media(768px <= width) {
@@ -559,13 +635,29 @@ img {
             font-size: 1.5rem;
         }
     }
+    .footer {
+        &__title {
+            font-size: 3.4rem;
+        }
+        &__link {
+            font-size: 1.9rem;
+        }
+    }
 }
 
 
 @media(992px <= width) {
+    .mobile-visible {
+        display: none;
+    }
+    .desktop-visible {
+        display: block;
+    }
     .nav {
         padding: 4em;
-
+        &__links-desktop {
+            gap: 2em;
+        }
         &__link {
             font-size: 1.8rem;
 
@@ -591,12 +683,7 @@ img {
         }
     }
     .images {
-        .mobile-visible {
-            display: none;
-        }
-        .desktop-visible {
-            display: block;
-        }
+   
         &__title {
             font-size: 3.8rem;
         }
@@ -645,6 +732,15 @@ img {
                 &:last-child {
                     margin: 3em 0;
                 }
+        }
+    }
+    .footer {
+        padding: 7em 2em;
+        &__title {
+            font-size: 3.8rem;
+        }
+        &__link {
+            font-size: 2.1rem;
         }
     }
 }
