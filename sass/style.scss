@@ -1,0 +1,57 @@
+
+@use './_colors' as *;
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$fraunces: 'Fraunces', sans-serif;
+$Barlow: 'Barlow', sans-serif;
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: wheat;
+    
+        &__links {
+            display: flex;
+        }
+
+        &__links-desktop {
+            display: none;
+        }
+        &__links-mobile {
+            position: absolute;
+            padding: 2em;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5em;
+            top: 6em;
+            right: 1.2em;
+            width: min(300px, 85%);
+            background-color: wheat;
+            // opacity: 0;
+            // visibility: hidden;
+        }
+        &__link {
+            text-decoration: none;
+            color: $lightBlue;
+        }
+        &__burger-btn {
+            padding: .5em;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+}
+
