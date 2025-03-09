@@ -15,11 +15,13 @@ html {
 }
 
 .nav {
+  width: 100%;
+  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2em 1em;
-  background-color: wheat;
+  z-index: 100;
 }
 .nav__links {
   display: flex;
@@ -35,7 +37,16 @@ html {
   top: 8em;
   right: 1.5em;
   width: min(300px, 90%);
-  background-color: wheat;
+  background-color: hsl(0, 0%, 100%);
+  transform: scale(0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.12, 1.73), opacity 0.2s, visibility 0.2s;
+}
+.nav__links-mobile--opened {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
 }
 .nav__links-mobile::before {
   content: "";
@@ -46,7 +57,7 @@ html {
   height: 0;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-right: 20px solid red;
+  border-right: 20px solid hsl(0, 0%, 100%);
 }
 .nav__link {
   display: block;
@@ -69,13 +80,59 @@ html {
   transition: background-color 0.3s;
 }
 .nav__link:last-child:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  background-color: hsl(51, 82%, 54%);
 }
 .nav__burger-btn {
   padding: 0.5em;
   border: none;
   background: none;
   cursor: pointer;
+  transition: opacity 0.3s;
+}
+.nav__burger-btn--active {
+  opacity: 0.7;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 75vh;
+  padding: 2em;
+  background-image: url("../images/mobile/image-header.jpg");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+.header__title {
+  margin-block-start: 3em;
+  text-align: center;
+  font-family: "Fraunces", sans-serif;
+  font-size: 3rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: hsl(0, 0%, 100%);
+}
+.header__arrow {
+  position: absolute;
+  bottom: 8em;
+}
+
+.images .desktop-visible {
+  display: none;
+}
+.images__img-yellow {
+  width: 100%;
+}
+
+@media (375px <= width) {
+  .header__arrow {
+    bottom: 12em;
+  }
+  .header__title {
+    margin-block-start: 4em;
+    font-size: 3.5rem;
+  }
 }/*# sourceMappingURL=style.css.map */
